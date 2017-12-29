@@ -1,4 +1,4 @@
 baseURL = "https://blog.preston.io/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "preston's online diary"
 theme = "ananke"
