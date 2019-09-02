@@ -1,4 +1,6 @@
 baseURL = "https://blog.preston.io/"
 languageCode = "en-us"
-title = "preston's online diary"
-theme = "ananke"
+title = "preston.io"
+theme = "alpaca"
+[params]
+  author = "Preston Pham"

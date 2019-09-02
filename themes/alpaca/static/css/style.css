@@ -1,0 +1,108 @@
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 48px;
+  margin: 1em 0 0 0;
+}
+
+h2 {
+  font-size: 26px;
+  line-height: 32px;
+  margin: .25em 0 0 0;
+  color: #457B9D;
+}
+
+h3 {
+  font-family: 'Lora', serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #1D3557;
+}
+
+a {
+  text-decoration: none;
+  color: #E63946;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  background-color: #F1FAEE;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  line-height: 1.5;
+  color: #1D3557;
+}
+
+header {
+  background-color: #457B9D;
+}
+
+header a {
+  text-decoration: none;
+  color: #A8DADC;
+  font-size: 1em;
+  vertical-align: middle;
+}
+
+header a:hover {
+  text-decoration: none;
+}
+
+
+.container {
+  padding: 1em;
+}
+
+@media(min-width: 760px) {
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+ul {
+  list-style-type: disc;
+  padding-inline-start: 1em;
+}
+
+.hanchor {
+  opacity: 0;
+  font-size: 16px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+
+h1:hover > .hanchor,
+h2:hover > .hanchor,
+h3:hover > .hanchor,
+h4:hover > .hanchor,
+h5:hover > .hanchor,
+h6:hover > .hanchor {
+  opacity: 1;
+  text-decoration: none;
+  color: #666;
+}
+
+aside {
+  background-color: #fff;
+  border: 1px solid #E63946;
+  border-left: 15px solid #E63946;
+  padding: 1em;
+  color: #1D3557;
+}
