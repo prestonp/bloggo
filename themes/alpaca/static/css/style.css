@@ -39,7 +39,7 @@ a:hover {
 
 body {
   margin: 0;
-  background-color: #F1FAEE;
+  background-color: #FFF;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -47,6 +47,24 @@ body {
   font-size: 22px;
   line-height: 1.5;
   color: #1D3557;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.nav-item {
+  padding-left: 1em;
+  font-size: .8em;
+  display: inline;
 }
 
 header {
@@ -62,11 +80,13 @@ header a {
 
 header a:hover {
   text-decoration: none;
+  color: #FFF;
 }
 
 
 .container {
   padding: 1em;
+  width: 100%;
 }
 
 @media(min-width: 760px) {
@@ -105,4 +125,23 @@ aside {
   border-left: 15px solid #E63946;
   padding: 1em;
   color: #1D3557;
+}
+
+footer {
+  font-size: .8em;
+  color: rgba(0,0,0,.4);
+}
+
+pre { 
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  line-height: 1.45em;
+  font-size: 13px;
+  margin-bottom: 2.1em;
+  padding: .8em 1em;
+  color: #1a1a1a;
+  overflow: auto;
+
+  white-space: pre-wrap;
+  word-break: keep-all
 }

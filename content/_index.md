@@ -1,0 +1,2 @@
+<div><img src="harden.gif"/></div>
+<p>Hi, I'm Preston. I'm an engineer based in Lisbon at <a href="https://cloudflare.com">Cloudflare</a> working on <a href="https://www.cloudflare.com/products/cloudflare-stream/">video streaming</a>.</p>

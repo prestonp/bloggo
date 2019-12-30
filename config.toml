@@ -2,5 +2,6 @@ baseURL = "https://blog.preston.io/"
 languageCode = "en-us"
 title = "preston.io"
 theme = "alpaca"
+summaryLength = 70
 [params]
   author = "Preston Pham"
