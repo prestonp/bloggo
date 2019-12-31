@@ -3,5 +3,6 @@ languageCode = "en-us"
 title = "preston.io"
 theme = "alpaca"
 summaryLength = 70
+disqusShortname = "blog-preston-io"
 [params]
   author = "Preston Pham"
