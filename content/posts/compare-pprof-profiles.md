@@ -24,13 +24,13 @@ In Go, you can mount http endpoints which serve pprof profiles in protobuf forma
 The easiest way to mount the http interface is to import the [net/http/pprof](https://golang.org/pkg/net/http/pprof/) package. This
 adds several routes to the `http.DefaultServeMux`.
 
-```
+```go
 import _ "net/http/pprof"
 ```
 
 If you don't already have a server running, you'll need to listen and serve
 
-```
+```go
 go func() {
 	log.Println(http.ListenAndServe("localhost:6060", nil))
 }()
@@ -38,13 +38,13 @@ go func() {
 
 Now you can grab profile data under `/debug/pprof/*` routes!
 
-```
+```sh
 wget http://localhost:6060/debug/pprof/goroutine
 ```
 
 If you prefer, you can get a text representation instead of protobuf data by adding a debug query
 
-```
+```sh
 wget http://localhost:6060/debug/pprof/goroutine?debug=1
 ```
 
@@ -55,7 +55,7 @@ If you prefer using an explicit mux or a routing system ([gorilla/mux](https://g
 [go-chi/chi](https://github.com/go-chi/chi), [labstack/echo](https://github.com/labstack/echo), etc.), then you'll have to
 explicitly mount the pprof routes like this
 
-```
+```go
 mux := http.NewServeMux()
 mux.HandleFunc("/debug/pprof", pprof.Index)
 mux.HandleFunc("/debug/pprof/cmdline", pprof.Cmdline)
@@ -84,7 +84,7 @@ memory usage indicator.
 I like using [prometheus](https://prometheus.io/) for metrics and the Golang client instruments several metrics out of the box. Setting up prometheus and
 getting metric data is a bit out of scope for this post but here's an abbreviated prometheus scrape.
 
-```
+```text
 # TYPE go_memstats_stack_sys_bytes gauge
 go_memstats_stack_sys_bytes 589824
 # HELP go_memstats_sys_bytes Number of bytes obtained from system.
@@ -122,26 +122,26 @@ resource leak, often caused by routines that are blocked on sending or receiving
 
 OK! So to compare profiles, take an initial snapshot
 
-```
+```sh
 curl localhost:6060/debug/pprof/heap > heap1.data
 ```
 
 Then reproduce the issue (if you can) or wait some time. Then take another snapshot
 
-```
+```sh
 curl localhost:6060/debug/pprof/heap > heap2.data
 ```
 
 Now, let's use pprof to analyze the difference[^1] between the two
 
-```
+```sh
 go tool pprof --base heap1.data heap2.data
 ```
 
 This will drop you into interactive mode of pprof, you can use the `top` command to inspect
 the top entries.
 
-```
+```text
 (pprof) top
 Showing nodes accounting for 3.55MB, 100% of 3.55MB total
       flat  flat%   sum%        cum   cum%
@@ -162,7 +162,7 @@ This gives a few clues that some kind of buffer might be lingering. Double-check
 
 You can list the available commands via `help`
 
-```
+```text
 (pprof) help
   Commands:
     callgrind        Outputs a graph in callgrind format
@@ -197,14 +197,14 @@ You can list the available commands via `help`
 You can generate visualizations through commands like `png` and `pdf`. You might need to install additional libraries for some 
 output formats like DOT which requires graphviz.
 
-```
+```text
 (pprof) png
 Generating report in profile001.png
 ```
 
 You can also dig deeper into functions using the `list` command and regex matching function names
 
-```
+```text
 (pprof) list net/http
 Total: 10.13MB
 ROUTINE ======================== net/http.(*http2ClientConn).readLoop in /usr/local/go/src/net/http/h2_bundle.go
