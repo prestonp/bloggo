@@ -15,7 +15,7 @@ global:
 scrape_configs:
   - job_name: 'my-test-server'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['localhost:8000']
 ```
 
 This file declares all of the scrape targets that prometheus will poll metrics against. The targets are also known as exporters and typically serve an HTTP endpoint under `/metrics` or `/_metrics`. These endpoints respond with metrics data.

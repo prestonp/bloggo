@@ -17,3 +17,5 @@ disqusShortname = "blog-preston-io"
     noClasses = true
     style = "friendly"
     tabWidth = 4
+  [markup.goldmark.renderer]
+    unsafe= true
